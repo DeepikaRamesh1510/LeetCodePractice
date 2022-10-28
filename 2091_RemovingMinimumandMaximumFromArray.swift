@@ -36,3 +36,5 @@ func minimumDeletions(_ nums: [Int]) -> Int {
     
     return min(nums.count - i, (nums.count - j) + (i + 1), j + 1)
 }
+
+//minimumDeletions([0,-4,19,1,8,-2,-3,5])
