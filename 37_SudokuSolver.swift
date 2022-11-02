@@ -71,3 +71,88 @@ class Solution {
 //							 [".",".",".","4","1","9",".",".","5"],
 //							 [".",".",".",".","8",".",".","7","9"]]
 //Solution().solveSudoku(&sudoku)
+
+
+//MARK: -  need try with bit masking later on
+
+//class Solution {
+//
+//	var row: [Int] = Array(repeating: 0, count: 9)
+//	var col: [Int] = Array(repeating: 0, count: 9)
+//	var box: [Int] = Array(repeating: 0, count: 9)
+//
+//	func solveSudoku(_ board: inout [[Character]]) {
+//		for r in 0..<board.count {
+//			for c in 0..<board.count {
+//				guard board[r][c] != "." else { continue }
+//
+//				guard let num: Int = Int(String(board[r][c])) else { continue }
+//
+//				let pos: Int = 1 << (num - 1)
+//
+//				row[r] = pos | row[r]
+//				col[c] = pos | col[c]
+//				let boxIndex: Int = (r/3) * 3 + c/3
+//				box[boxIndex] = pos | box[boxIndex]
+//			}
+//		}
+//
+//		_ = isSolved(&board)
+//
+//		printBoard(board)
+//	}
+//
+//	func isSolved(_ board: inout [[Character]]) -> Bool {
+//		for i in (0..<board.count) {
+//			for j in (0..<board.count) where board[i][j] == "." {
+//				printBoard(board)
+//				for num in 1...9 where isValid(num, i, j) {
+//					print(num)
+//					placeNumber(num, &board, i, j)
+//
+//					if isSolved(&board) {
+//						return true
+//					} else {
+//						removeNumber(num, &board, i, j)
+//					}
+//				}
+//				return false
+//			}
+//		}
+//		return true
+//	}
+//
+//	func removeNumber(_ num: Int, _ board: inout[[Character]], _ r: Int, _ c: Int) {
+//		let pos = 1 << (num - 1)
+//		let boxIndex = (r/3) * 3 + (c/3)
+//		row[r] ^= pos
+//		col[c] ^= pos
+//		box[boxIndex] ^= pos
+//		board[r][c] = Character("\(num)")
+//	}
+//
+//	func placeNumber(_ num: Int, _ board: inout [[Character]], _ r: Int, _ c: Int) {
+//		let pos = 1 << (num - 1)
+//		let boxIndex = (r/3) * 3 + (c/3)
+//		row[r] |= pos
+//		col[c] |= pos
+//		box[boxIndex] |= pos
+//		board[r][c] = Character("\(num)")
+//	}
+//
+//	func isValid(_ num: Int, _ r: Int, _ c: Int) -> Bool {
+//		let pos = 1 << (num - 1)
+//		let boxIndex = (r/3) * 3 + (c/3)
+//		if (col[c] | row[r] | box[boxIndex]) & pos != 0 {
+//			return false
+//		} else {
+//			return true
+//		}
+//	}
+//
+//
+//	func printBoard(_ board: [[Character]]) {
+//		print("+--------------------------------------+")
+//		for i in 0..<board.count {  print(board[i])  }
+//	}
+//}
