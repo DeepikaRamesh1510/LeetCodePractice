@@ -34,7 +34,7 @@ import Foundation
  1 <= houses[i], heaters[i] <= 109
  */
 
-func findRadius(_ houses: [Int], _ heaters: [Int]) -> Int {
+func findRadius2(_ houses: [Int], _ heaters: [Int]) -> Int {
 
 	let sortedHeater = heaters.sorted()
 	var minRadiusRequired: Int = 0
