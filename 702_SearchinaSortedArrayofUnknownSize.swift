@@ -102,4 +102,4 @@ public class ArrayReader {
 	}
 }
 
-print(search(ArrayReader(), 10000))
+//print(search(ArrayReader(), 10000))
