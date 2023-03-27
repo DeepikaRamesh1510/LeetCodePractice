@@ -37,6 +37,32 @@ import Foundation
  grid[i][j] is '0' or '1'.
  */
 
+func numIslandsDFS(_ grid: [[Character]]) -> Int {
+	
+	var grid = grid
+	var noOfIslands = 0
+	
+	func dfs(_ row: Int, _ col: Int) {
+		if row < 0 || col < 0 || row >= grid.count || col >= grid[0].count { return }
+		guard grid[row][col] == "1" else { return }
+		grid[row][col] = "0"
+		dfs(row - 1, col)
+		dfs(row + 1, col)
+		dfs(row, col - 1)
+		dfs(row, col + 1)
+	}
+	
+	for row in (0..<grid.count) {
+		for col in (0..<grid[row].count) {
+			guard grid[row][col] == "1" else { continue }
+			
+			noOfIslands += 1
+			dfs(row, col)
+		}
+	}
+	return noOfIslands
+}
+
 func numIslandsBFS(_ grid: [[Character]]) -> Int {
 	var grid = grid
 	var queue: [(Int, Int)] = []
