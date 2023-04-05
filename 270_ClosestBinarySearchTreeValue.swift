@@ -27,7 +27,7 @@ import Foundation
 
 
 
-public class TreeNode {
+fileprivate class TreeNode {
 	public var val: Int
 	public var left: TreeNode?
 	public var right: TreeNode?
@@ -41,7 +41,7 @@ public class TreeNode {
 }
 
 
-func closestValue(_ root: TreeNode?, _ target: Double) -> Int {
+fileprivate func closestValue(_ root: TreeNode?, _ target: Double) -> Int {
 	
 	var root = root
 	var closest: Double = root!.val.double
