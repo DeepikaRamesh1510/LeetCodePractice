@@ -92,7 +92,7 @@ fileprivate func deleteNode(_ root: TreeNode?, _ key: Int) -> TreeNode? {
 	return root
 	}
 
-fileprivate extension TreeNode: Equatable {
+extension TreeNode: Equatable {
 	public static func ==(_ lhs: TreeNode, _ rhs: TreeNode) -> Bool {
 		return lhs.val == rhs.val && lhs.left == rhs.left && lhs.right == rhs.right
 	}
