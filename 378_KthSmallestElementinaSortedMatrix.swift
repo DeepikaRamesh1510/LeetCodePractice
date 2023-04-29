@@ -45,7 +45,7 @@ import Foundation
  Could you solve the problem in O(n) time complexity? The solution may be too advanced for an interview but you may find reading this paper fun.
  */
 
-func kthSmallest(_ matrix: [[Int]], _ k: Int) -> Int {
+fileprivate func kthSmallest(_ matrix: [[Int]], _ k: Int) -> Int {
 	
 	let priorityFunc: ((Int, Int, Int), (Int, Int, Int)) -> Bool = { (lhs: (Int, Int, Int), rhs: (Int, Int, Int)) -> Bool in
 		if lhs.0 < rhs.0 {
@@ -84,7 +84,7 @@ func kthSmallest(_ matrix: [[Int]], _ k: Int) -> Int {
 	return element?.0 ?? Int.min
 }
 
-struct Heap<T> {
+fileprivate struct Heap<T> {
 	var items: [T] = []
 	var isNotEmpty: Bool { return !items.isEmpty }
 	var count: Int { return items.count }
